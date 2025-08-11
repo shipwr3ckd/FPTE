@@ -69,7 +69,7 @@ export function Builder({ guildId }: BuilderProps) {
                     bio: newBio,
                 });
                 setBio(newBio);
-                showToast("FPTE removed from your bio!");
+                showToast("FPTE removed!");
             } catch (err) {
                 showToast("Failed to update bio!");
                 console.error(err);
@@ -91,7 +91,7 @@ export function Builder({ guildId }: BuilderProps) {
                 bio: newBio,
             });
             setBio(newBio);
-            showToast("FPTE applied to your bio!");
+            showToast("FPTE applied!");
         } catch (err) {
             showToast("Failed to update bio!");
             console.error(err);
