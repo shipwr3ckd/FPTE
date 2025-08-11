@@ -3,10 +3,11 @@ import { UserProfileStore, UserStore } from "@lib/stores";
 import {
     patchGetPurchase,
     patchGetUserProfile,
-    patchGuildProfileEditForm,
+    //patchGuildProfileEditForm,
     patchUseProfileEffectSections,
     patchUseProfileTheme,
-    patchUserProfileEditForm
+    patchUserProfileEditForm,
+    patchNitroUpsellCard
 } from "@patches";
 import { Settings } from "@ui/pages";
 
@@ -31,10 +32,11 @@ export default {
         patches.push(
             patchGetPurchase(),
             patchGetUserProfile(),
-            patchGuildProfileEditForm(),
+            //patchGuildProfileEditForm(),
             ...patchUseProfileEffectSections(),
             patchUseProfileTheme(),
-            patchUserProfileEditForm()
+            patchUserProfileEditForm(),
+            patchNitroUpsellCard()
         );
         updateProfileThemeAndEffect();
     },

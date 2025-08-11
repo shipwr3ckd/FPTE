@@ -195,3 +195,32 @@ export function extractFPTE(str: string) {
 
     return fpte;
 }
+
+/**
+ * Detects if a string contains an FPTE substring based on the presence of
+ * FPTE codepoints or the FPTE delimiter.
+ * @param str The string to check.
+ * @returns True if the string contains FPTE codepoints or delimiters, false otherwise.
+ */
+export function hasFPTE(str: string): boolean {
+    for (const char of str) {
+        const cp = char.codePointAt(0)!;
+        if (
+            (cp >= STARTING_CODEPOINT && cp <= ENDING_CODEPOINT) || // FPTE codepoint range
+            cp === DELIMITER_CODEPOINT                               // delimiter zero-width space
+        ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+export function stripFPTE(str: string) {
+        return [...str]
+            .filter(ch => {
+                const cp = ch.codePointAt(0)!;
+                return (cp < STARTING_CODEPOINT || cp > ENDING_CODEPOINT) && cp !== DELIMITER_CODEPOINT;
+            })
+            .join("")
+            .trim();
+    }
