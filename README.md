@@ -1,7 +1,6 @@
-# Vendetta Plugins
-This repo contains my [Vendetta](https://github.com/vendetta-mod/Vendetta) plugins.
+# FakeProfileThemesAndEffects
+Fork of FakeProfileThemesAndEffects by ryan
 
-# How to install?
-Paste a plugin URL into the Plugins page of Vendetta, following a basic format of:
+Allows profile theming and the usage of profile effects by hiding the colors and effect ID in your About Me using invisible, zero-width characters
 
-https://ryan-0324.github.io/vendetta-plugins/PLUGIN_NAME
+> https://shipwr3ckd.github.io/FPTE/FakeProfileThemesAndEffects
