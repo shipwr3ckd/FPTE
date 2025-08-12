@@ -16,20 +16,21 @@ export const patchUserProfileEditForm = () =>
       Array.isArray(children) &&
       children.some(child =>
         isElement(child) &&
-        getComponentNameFromType(child.type) === "UserProfileEditFormTextField" &&
-        (child.props as any).label === "About Me"
+        getComponentNameFromType(child.type) === "UserProfileEditFormTextField"
       )
     );
 
     if (parent) {
-      const index = parent.props.children.findIndex(
-        child =>
+      const index = parent.props.children.reduce<number[]>((acc, child, i) => {
+        if (
           isElement(child) &&
-          getComponentNameFromType(child.type) === "UserProfileEditFormTextField" &&
-          (child.props as any).label === "About Me"
-      );
-      if (index !== -1) {
-        parent.props.children.splice(index + 1, 0, <Builder />);
+          getComponentNameFromType(child.type) === "UserProfileEditFormTextField"
+        ) acc.push(i);
+        return acc;
+      }, []);
+
+      if (index.length >= 3) {
+        parent.props.children.splice(index[2] + 1, 0, <Builder />);
       }
     }
 
